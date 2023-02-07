@@ -6,7 +6,7 @@ name: Python application
 on:
   workflow_dispatch:
     inputs:
-      tag:
+      name:
         description: "test tags"
         default: 'latest'
         required: true
@@ -36,13 +36,13 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: tags
-      run: echo "tags name ${{ github.event.inputs.tag }}"
+      run: echo "tags name ${{ github.event.inputs.name }}"
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
 
         push: true
-        tags: venkadeshw55/pythonflaskapp:${{ github.event.inputs.tag }}
+        tags: venkadeshw55/pythonflaskapp:${{ github.event.inputs.name }}
         
  
 
