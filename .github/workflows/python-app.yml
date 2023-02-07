@@ -31,7 +31,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push
       env:
-        IMAGE_TAG: ${{ env.GIT_TAG }}
+        IMAGE_TAG: ${COMMIT_HASH:=latest}
       uses: docker/build-push-action@v4
       with:
         push: true
