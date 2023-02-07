@@ -26,6 +26,7 @@ jobs:
     - name: Install dependencies
       run: |
         docker build -t pythonapp:latest .
+        docker tag pythonapp:latest pythonapp:$GIT_TAG
         
  
 
