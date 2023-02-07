@@ -29,10 +29,11 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Install dependencies
-      run: |
-        docker build -t pythonapp:latest .
-        docker tag pythonapp:latest venkadeshw55/pythonflaskapp:$GIT_TAG
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+        push: true
+        tags: venkadeshw55/pythonflaskapp:latest
         
  
 
