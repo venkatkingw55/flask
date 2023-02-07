@@ -36,9 +36,9 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        IMAGE_TAG: ${{ github.event.input.tags }}
+
         push: true
-        tags: venkadeshw55/pythonflaskapp:$IMAGE_TAG
+        tags: venkadeshw55/pythonflaskapp:${{ github.event.input.tags }}
         
  
 
