@@ -4,6 +4,10 @@
 name: Python application
 
 on:
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: "test tags"
   push:
     branches: [ "main" ]
   pull_request:
@@ -31,7 +35,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push
       env:
-        IMAGE_TAG: ${COMMIT_HASH:=latest}
+        IMAGE_TAG: ${{ github.event.input.tags }}
       uses: docker/build-push-action@v4
       with:
         push: true
