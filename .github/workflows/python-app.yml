@@ -25,7 +25,8 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
-        docker build -t pythonapp:$GIT_TAG .
+        docker build -t pythonapp:latest .
+        
  
 
 
