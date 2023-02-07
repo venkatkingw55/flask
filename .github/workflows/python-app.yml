@@ -34,10 +34,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push
-      env:
-        IMAGE_TAG: ${{ github.event.input.tags }}
       uses: docker/build-push-action@v4
       with:
+        IMAGE_TAG: ${{ github.event.input.tags }}
         push: true
         tags: venkadeshw55/pythonflaskapp:$IMAGE_TAG
         
