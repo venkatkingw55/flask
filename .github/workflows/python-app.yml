@@ -36,7 +36,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: tags
-      run: echo "tags name ${{ github.event.input.tags }}"
+      run: echo "tags name ${{ github.event.inputs.name }}"
 #     - name: Build and push
 #       uses: docker/build-push-action@v4
 #       with:
